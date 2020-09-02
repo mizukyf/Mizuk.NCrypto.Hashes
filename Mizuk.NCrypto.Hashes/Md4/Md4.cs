@@ -26,7 +26,7 @@ namespace Mizuk.NCrypto.Hashes.Md4
         void FinalizeInner()
         {
             var l = LengthBytes << 3;
-            Buffer.PaddingLittleEndian(l, x => State.ProcessBlock(x));
+            Buffer.Length64PaddingLittleEndian(l, x => State.ProcessBlock(x));
         }
 
         public void Update(byte[] input)

@@ -72,7 +72,7 @@ namespace Mizuk.NCrypto.Hashes.Util
             _pos = rem.Length;
         }
 
-        public void PaddingLittleEndian(ulong dataLength, Action<byte[]> f)
+        public void Length64PaddingLittleEndian(ulong dataLength, Action<byte[]> f)
         {
             DigestPadding(8, f);
             var b = dataLength.ToLittleEndianBytes();
