@@ -6,13 +6,14 @@ using System.Linq;
 namespace Mizuk.NCrypto.Hashes.Util
 {
     /// <summary>
-    /// This code is derived from  "std::slice::ChunksExact" in Rust std modules.
-    /// Ported by mizuky at 2020/09/01.
-    /// 
     /// 予め指定されたチャンクサイズでバイト配列を繰り返し処理するためのクラスです。
     /// <see cref="GetEnumerator"/>が返す列挙子はあくまでも予め定められたチャンクサイズでバイト配列を切り出します。
     /// 元のデータにチャンクサイズ未満の部分が残る場合、<see cref="GetRemainder"/>はそのバイト配列を返します。
     /// </summary>
+    /// <remarks>
+    /// This code is derived from  "std::slice::ChunksExact" in Rust std modules.
+    /// Ported by mizuky at 2020/09/01.
+    /// </remarks>
     sealed class ChunksExact : IEnumerable<byte[]>
     {
         readonly byte[] _values;

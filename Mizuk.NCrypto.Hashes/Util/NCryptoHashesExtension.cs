@@ -3,12 +3,14 @@
 namespace Mizuk.NCrypto.Hashes.Util
 {
     /// <summary>
-    /// This code is derived from  RustCrypto/hashes and Rust std modules.
-    /// Ported by mizuky at 2020/09/01.
-    /// 
     /// Mizuk.NCrypto.Hashes内のコードのため、RustからC#へのポーティングをできるだけシンプルに行うための
     /// 各種の拡張メソッドを提供するユーティリティクラスです。
     /// </summary>
+    /// <remarks>
+    /// This code is derived from  RustCrypto/hashes and Rust std modules.
+    /// Ported by mizuky at 2020/09/01.
+    /// 
+    /// </remarks>
     static class NCryptoHashesExtension
     {
         /// <summary>

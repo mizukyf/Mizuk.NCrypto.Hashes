@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 namespace Mizuk.NCrypto.Hashes.Md4
 {
     /// <summary>
+    /// </summary>
+    /// <remarks>
     /// This code is derived from  RustCrypto/hashes.
     /// Ported by mizuky at 2020/09/01.
-    /// </summary>
+    /// </remarks>
     public sealed class Md4
     {
         static internal readonly int BlockSize = 64;

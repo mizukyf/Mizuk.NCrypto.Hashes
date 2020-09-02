@@ -4,12 +4,13 @@ using System.Linq;
 namespace Mizuk.NCrypto.Hashes.Util
 {
     /// <summary>
-    /// This code is derived from  "block_buffer::BlockBuffer" in Rust std modules.
-    /// Ported by mizuky at 2020/09/01.
-    /// 
     /// バイト列からなるデータをブロックごとに処理するためのバッファーです。
     /// RustCrypto/hasesのRustコードをC#コードへとポーティングする際に必要となった最小限の機能のみ有します。
     /// </summary>
+    /// <remarks>
+    /// This code is derived from  "block_buffer::BlockBuffer" in Rust std modules.
+    /// Ported by mizuky at 2020/09/01.
+    /// </remarks>
     sealed class BlockBuffer
     {
         readonly byte[] _buffer;
@@ -32,16 +33,17 @@ namespace Mizuk.NCrypto.Hashes.Util
         public int Remaining { get { return Size - _pos; } }
 
         /// <summary>
-        /// 入力となるバイト列をバッファーに格納します。
-        /// バッファーが満たされた時点で都度、指定されたアクションを実行してバッファをクリアします。
+        /// 入力となるバイト列をバッファに格納します。
+        /// バッファが満たされた時点で都度、指定されたアクションを実行してバッファをクリアします。
         /// 
-        /// 入力となるバイト列サイズがバッファの現在の<see cref="Remaining"/>未満の場合、アクションは実行されません。
-        /// 入力となるバイト列サイズがバッファの現在の<see cref="Remaining"/>以上の場合、そのサイズに応じて
-        /// バッファの充足、アクションの実行、バッファのクリアという一連の動作を繰り返します。
+        /// 入力となるデータのバイト列サイズがバッファの現在の<see cref="Remaining"/>未満の場合、
+        /// 入力データはバッファに格納され、アクションは実行されません。
+        /// 入力となるデータのバイト列サイズがバッファの現在の<see cref="Remaining"/>以上の場合、
+        /// そのサイズに応じてバッファの充足、アクションの実行、バッファのクリアという一連の動作が繰り返されます。
         /// アクション<paramref name="f"/>に渡されるバイト列のサイズはバッファのサイズと一致します。
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="f"></param>
+        /// <param name="input">入力データのバイト列</param>
+        /// <param name="f">バッファが充足されるたび実行されるアクション</param>
         public void InputBlock(byte[] input, Action<byte[]> f)
         {
             var r = Remaining;
@@ -72,6 +74,12 @@ namespace Mizuk.NCrypto.Hashes.Util
             _pos = rem.Length;
         }
 
+        /// <summary>
+        /// メッセージを、<c>0x80</c>、それに続くゼロの羅列、そして64bitのメッセージ長値を
+        /// リトルエンディアンでバイト列にしたものでパディングします。
+        /// </summary>
+        /// <param name="dataLength">メッセージ長</param>
+        /// <param name="f">バッファに所定の空きがないとき実行されるアクション</param>
         public void Length64PaddingLittleEndian(ulong dataLength, Action<byte[]> f)
         {
             DigestPadding(8, f);
@@ -82,11 +90,21 @@ namespace Mizuk.NCrypto.Hashes.Util
             _pos = 0;
         }
 
+        /// <summary>
+        /// バッファをリセットします。
+        /// </summary>
         public void Reset()
         {
             _pos = 0;
         }
 
+        /// <summary>
+        /// 接頭辞（<c>0x80</c>）とそれに続くゼロの羅列でバッファにパディングを行います。
+        /// 加えて、<paramref name="upTo"/>で指定されただけの空きスペースが確保されるようにします。
+        /// バッファ内のバイト列の残りの部分はすべてゼロで埋められます。
+        /// </summary>
+        /// <param name="upTo">最低限確保すべきバッファの空きスペース</param>
+        /// <param name="f">バッファに所定の空きがないとき実行されるアクション</param>
         void DigestPadding(int upTo, Action<byte[]> f)
         {
             if (_pos == Size)
