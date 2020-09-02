@@ -6,6 +6,9 @@ namespace Mizuk.NCrypto.Hashes.Util
     /// <summary>
     /// This code is derived from  "block_buffer::BlockBuffer" in Rust std modules.
     /// Ported by mizuky at 2020/09/01.
+    /// 
+    /// バイト列からなるデータをブロックごとに処理するためのバッファーです。
+    /// RustCrypto/hasesのRustコードをC#コードへとポーティングする際に必要となった最小限の機能のみ有します。
     /// </summary>
     sealed class BlockBuffer
     {
@@ -19,9 +22,26 @@ namespace Mizuk.NCrypto.Hashes.Util
             _buffer = new byte[blockSize];
         }
 
+        /// <summary>
+        /// このバッファーのサイズです。
+        /// </summary>
         public int Size { get; private set; }
+        /// <summary>
+        /// バッファーに現在残されている空きスペースのサイズです。
+        /// </summary>
         public int Remaining { get { return Size - _pos; } }
 
+        /// <summary>
+        /// 入力となるバイト列をバッファーに格納します。
+        /// バッファーが満たされた時点で都度、指定されたアクションを実行してバッファをクリアします。
+        /// 
+        /// 入力となるバイト列サイズがバッファの現在の<see cref="Remaining"/>未満の場合、アクションは実行されません。
+        /// 入力となるバイト列サイズがバッファの現在の<see cref="Remaining"/>以上の場合、そのサイズに応じて
+        /// バッファの充足、アクションの実行、バッファのクリアという一連の動作を繰り返します。
+        /// アクション<paramref name="f"/>に渡されるバイト列のサイズはバッファのサイズと一致します。
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="f"></param>
         public void InputBlock(byte[] input, Action<byte[]> f)
         {
             var r = Remaining;
