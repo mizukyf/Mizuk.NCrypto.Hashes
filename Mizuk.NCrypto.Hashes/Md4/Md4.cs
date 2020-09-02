@@ -47,7 +47,7 @@ namespace Mizuk.NCrypto.Hashes.Md4
 
         /// <summary>
         /// MD4メッセージダイジェストの計算結果を引数で指定されたバッファに回収します。
-        /// そしてクラスの内部状態はダーティなままにします。
+        /// そしてオブジェクトの内部状態はダーティなままにします。
         /// </summary>
         /// <param name="output"></param>
         public void FinalizeIntoDirty(byte[] output)
@@ -61,6 +61,9 @@ namespace Mizuk.NCrypto.Hashes.Md4
             }
         }
 
+        /// <summary>
+        /// このオブジェクトの内部状態をリセットします。
+        /// </summary>
         public void Reset()
         {
             State = new Md4State();

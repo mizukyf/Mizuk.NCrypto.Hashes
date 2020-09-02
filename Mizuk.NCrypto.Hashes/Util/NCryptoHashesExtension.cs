@@ -86,7 +86,5 @@ namespace Mizuk.NCrypto.Hashes.Util
         {
             return new ChunksExact(values, chunkSize);
         }
-
-        
     }
 }
