@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mizuk.NCrypto", "Mizuk.NCrypto\Mizuk.NCrypto.csproj", "{319C126A-0B31-4835-9361-4EFC57DD538C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mizuk.NCrypto.Hashes", "Mizuk.NCrypto.Hashes\Mizuk.NCrypto.Hashes.csproj", "{2E219093-C467-4885-869A-F70D9BCC078A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{319C126A-0B31-4835-9361-4EFC57DD538C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{319C126A-0B31-4835-9361-4EFC57DD538C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{319C126A-0B31-4835-9361-4EFC57DD538C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{319C126A-0B31-4835-9361-4EFC57DD538C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E219093-C467-4885-869A-F70D9BCC078A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E219093-C467-4885-869A-F70D9BCC078A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E219093-C467-4885-869A-F70D9BCC078A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E219093-C467-4885-869A-F70D9BCC078A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

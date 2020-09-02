@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mizuk.NCrypto
+namespace Mizuk.NCrypto.Hashes
 {
     public class Class1
     {
