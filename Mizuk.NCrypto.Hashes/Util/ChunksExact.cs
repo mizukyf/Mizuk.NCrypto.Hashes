@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Mizuk.NCrypto.Hashes.Md4
+namespace Mizuk.NCrypto.Hashes.Util
 {
+    /// <summary>
+    /// This code is derived from  "std::slice::ChunksExact" in Rust std modules.
+    /// Ported by mizuky at 2020/09/01.
+    /// </summary>
     sealed class ChunksExact : IEnumerable<byte[]>
     {
         readonly byte[] _values;

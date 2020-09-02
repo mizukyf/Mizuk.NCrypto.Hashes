@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Mizuk.NCrypto.Hashes.Util;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Mizuk.NCrypto.Hashes.Md4
 {
+    /// <summary>
+    /// This code is derived from  RustCrypto/hashes.
+    /// Ported by mizuky at 2020/09/01.
+    /// </summary>
     sealed class Md4State : IEnumerable<uint>
     {
         readonly uint[] _values = { 0x6745_2301, 0xEFCD_AB89, 0x98BA_DCFE, 0x1032_5476 };

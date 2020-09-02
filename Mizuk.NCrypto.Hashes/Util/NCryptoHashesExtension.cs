@@ -1,8 +1,12 @@
 ﻿using System;
 
-namespace Mizuk.NCrypto.Hashes.Md4
+namespace Mizuk.NCrypto.Hashes.Util
 {
-    static class Md4Extension
+    /// <summary>
+    /// This code is derived from  RustCrypto/hashes and Rust std modules.
+    /// Ported by mizuky at 2020/09/01.
+    /// </summary>
+    static class NCryptoHashesExtension
     {
         public static uint RotateLeft(this uint v, int n)
         {

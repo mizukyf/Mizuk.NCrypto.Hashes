@@ -29,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Mizuk.NCrypto.Hashes.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,12 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Md4\Block.cs" />
-    <Compile Include="Md4\BlockBuffer.cs" />
-    <Compile Include="Md4\ChunksExact.cs" />
+    <Compile Include="Util\Block.cs" />
+    <Compile Include="Util\BlockBuffer.cs" />
+    <Compile Include="Util\ChunksExact.cs" />
     <Compile Include="Md4\Md4.cs" />
-    <Compile Include="Md4\Md4Extension.cs" />
+    <Compile Include="Util\NCryptoHashesExtension.cs" />
     <Compile Include="Md4\Md4State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

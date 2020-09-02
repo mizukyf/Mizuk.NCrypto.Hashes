@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Mizuk.NCrypto.Hashes.Util;
+using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Mizuk.NCrypto.Hashes.Md4
 {
+    /// <summary>
+    /// This code is derived from  RustCrypto/hashes.
+    /// Ported by mizuky at 2020/09/01.
+    /// </summary>
     public sealed class Md4
     {
         static internal readonly int BlockSize = 64;

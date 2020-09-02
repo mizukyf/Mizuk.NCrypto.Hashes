@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mizuk.NCrypto.Hashes.Md4
+namespace Mizuk.NCrypto.Hashes.Util
 {
     //sealed class Block
     //{

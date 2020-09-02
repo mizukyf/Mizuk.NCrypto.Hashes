@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Linq;
 
-namespace Mizuk.NCrypto.Hashes.Md4
+namespace Mizuk.NCrypto.Hashes.Util
 {
+    /// <summary>
+    /// This code is derived from  "block_buffer::BlockBuffer" in Rust std modules.
+    /// Ported by mizuky at 2020/09/01.
+    /// </summary>
     sealed class BlockBuffer
     {
         readonly byte[] _buffer;
