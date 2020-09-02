@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Mizuk.NCrypto.Hashes.Md4
 {
     /// <summary>
+    /// MD4ハッシュの機能を提供するクラスです。
     /// </summary>
     /// <remarks>
     /// This code is derived from  RustCrypto/hashes.
@@ -20,6 +21,9 @@ namespace Mizuk.NCrypto.Hashes.Md4
         readonly BlockBuffer Buffer = new BlockBuffer(BlockSize);
         Md4State State;
 
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
         public Md4()
         {
             Reset();
@@ -31,6 +35,10 @@ namespace Mizuk.NCrypto.Hashes.Md4
             Buffer.Length64PaddingLittleEndian(l, x => State.ProcessBlock(x));
         }
 
+        /// <summary>
+        /// 入力データのバイト列を利用してMD4メッセージダイジェストの計算を続けます。
+        /// </summary>
+        /// <param name="input"></param>
         public void Update(byte[] input)
         {
             LengthBytes += (ulong)input.Length;
