@@ -37,10 +37,20 @@ namespace Mizuk.NCrypto.Hashes.Md4
             Buffer.InputBlock(input, x => State.ProcessBlock(x));
         }
 
-        public byte[] Digest()
+        /// <summary>
+        /// MD4メッセージダイジェストの計算結果を引数で指定されたバッファに回収します。
+        /// そしてクラスの内部状態はダーティなままにします。
+        /// </summary>
+        /// <param name="output"></param>
+        public void FinalizeIntoDirty(byte[] output)
         {
             FinalizeInner();
-            return State.SelectMany(x => x.ToLittleEndianBytes()).ToArray();
+
+            foreach(var x in Enumerable.Range(0, output.Length).Where(x => x % 4 == 0)
+                .Zip(State, (a, b) => new { StartIndex = a, Value = b }))
+            {
+                x.Value.ToLittleEndianBytes().CopyTo(output, x.StartIndex);
+            }
         }
 
         public void Reset()
