@@ -16,7 +16,7 @@ namespace Mizuk.NCrypto.Hashes.Md4
         /// <param name="self"></param>
         /// <param name="chars"></param>
         /// <returns></returns>
-        public static IEnumerable<byte> Digest(this Md4 self, IEnumerable<char> chars)
+        public static byte[] Digest(this Md4 self, IEnumerable<char> chars)
         {
             return Digest(self, Encoding.Unicode.GetBytes(chars.ToArray()));
         }
@@ -26,7 +26,7 @@ namespace Mizuk.NCrypto.Hashes.Md4
         /// <param name="self"></param>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        public static IEnumerable<byte> Digest(this Md4 self, IEnumerable<byte> bytes)
+        public static byte[] Digest(this Md4 self, IEnumerable<byte> bytes)
         {
             self.Reset();
             self.Update(bytes.ToArray());
