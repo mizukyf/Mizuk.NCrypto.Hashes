@@ -37,11 +37,14 @@ namespace Mizuk.NCrypto.Hashes.Md4
         /// </summary>
         /// <param name="value"></param>
         /// <param name="hyphenSeparated">16進数のペアとペアの間にハイフンを挿入します</param>
+        /// <param name="lowerCase">小文字を使用します</param>
         /// <returns></returns>
-        public static string ToHexString(this IEnumerable<byte> value, bool hyphenSeparated = false)
+        public static string ToHexString(this IEnumerable<byte> value, bool hyphenSeparated = false, bool lowerCase = false)
         {
-            if (hyphenSeparated) return BitConverter.ToString(value.ToArray());
-            return BitConverter.ToString(value.ToArray()).Replace("-", string.Empty);
+            return value.Select(x => string.Format(lowerCase ? "{0:x2}" : "{0:X2}", x))
+                .Aggregate(new StringBuilder(),
+                (a, b) => hyphenSeparated && a.Length > 0 ? a.Append('-').Append(b) : a.Append(b),
+                x => x.ToString());
         }
     }
 }
