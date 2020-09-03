@@ -55,7 +55,7 @@ namespace Mizuk.NCrypto.Hashes.Md4
         void FinalizeInner()
         {
             var l = LengthBytes << 3;
-            Buffer.Length64PaddingLittleEndian(l, x => State.ProcessBlock(x));
+            Buffer.Length64PaddingLittleEndian(l, State.ProcessBlock);
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Mizuk.NCrypto.Hashes.Md4
         public void Update(byte[] input)
         {
             LengthBytes += (ulong)input.Length;
-            Buffer.InputBlock(input, x => State.ProcessBlock(x));
+            Buffer.InputBlock(input, State.ProcessBlock);
         }
 
         /// <summary>
