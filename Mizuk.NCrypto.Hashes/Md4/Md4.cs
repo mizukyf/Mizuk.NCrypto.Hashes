@@ -23,7 +23,7 @@ namespace Mizuk.NCrypto.Hashes.Md4
         {
             get
             {
-                return BlockSize;
+                return 16;
             }
             private set
             {
