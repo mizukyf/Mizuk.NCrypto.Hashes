@@ -93,27 +93,43 @@ namespace Mizuk.NCrypto.Hashes.Md4
             LengthBytes = 0;
             Buffer.Reset();
         }
-
+        /// <summary>
+        /// 引数指定されたバッファに結果を回収します。
+        /// </summary>
+        /// <param name="output"></param>
         public void FinalizeInto(byte[] output)
         {
             FixedOutputDirtyImpl.FinalizeInto(this, output);
         }
-
+        /// <summary>
+        /// 引数指定されたバッファに結果を回収、その後内部状態をリセットします。
+        /// </summary>
+        /// <param name="output"></param>
         public void FinalizeIntoReset(byte[] output)
         {
             FixedOutputDirtyImpl.FinalizeIntoReset(this, output);
         }
-
+        /// <summary>
+        /// 結果を取得します。
+        /// </summary>
+        /// <returns></returns>
         public byte[] FinalizeFixed()
         {
             return FixedOutputImpl.FinalizeFixed(this);
         }
-
+        /// <summary>
+        /// 結果を取得し内部状態をリセットします。
+        /// </summary>
+        /// <returns></returns>
         public byte[] FinalizeFixedReset()
         {
             return FixedOutputImpl.FinalizeFixedReset(this);
         }
 
+        /// <summary>
+        /// このオブジェクトとその内部状態をクローンします。
+        /// </summary>
+        /// <returns></returns>
         public Md4 Clone()
         {
             var clone = new Md4();
@@ -123,16 +139,30 @@ namespace Mizuk.NCrypto.Hashes.Md4
             return clone;
         }
 
+        /// <summary>
+        /// メソッドチェインの形式でデータを変換します。
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public Md4 Chain(byte[] data)
         {
             return this.Chain(data);
         }
 
+        /// <summary>
+        /// 結果を取得します。
+        /// </summary>
+        /// <returns></returns>
         public byte[] Finalize()
         {
             return this.Finalize();
         }
 
+        /// <summary>
+        /// 結果を取得し、内部状態をリセットします。
+        /// このメソッドはオブジェクトを再作成するのに比べて効率的なことがあります。
+        /// </summary>
+        /// <returns></returns>
         public byte[] FinalizeReset()
         {
             return this.FinalizeReset();
