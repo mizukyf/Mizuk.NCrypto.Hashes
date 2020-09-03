@@ -45,6 +45,7 @@
     <Compile Include="Md4\IFixedOutputDirty.cs" />
     <Compile Include="Md4\IFixedOutput.cs" />
     <Compile Include="Md4\IReset.cs" />
+    <Compile Include="Md4\Md4Extension.cs" />
     <Compile Include="Util\Block.cs" />
     <Compile Include="Util\BlockBuffer.cs" />
     <Compile Include="Util\ChunksExact.cs" />
