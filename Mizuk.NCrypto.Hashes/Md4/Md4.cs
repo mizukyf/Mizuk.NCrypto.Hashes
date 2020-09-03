@@ -1,7 +1,5 @@
 ﻿using Mizuk.NCrypto.Hashes.Util;
-using System;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mizuk.NCrypto.Hashes.Md4
@@ -13,13 +11,25 @@ namespace Mizuk.NCrypto.Hashes.Md4
     /// This code is derived from  RustCrypto/hashes.
     /// Ported by mizuky at 2020/09/01.
     /// </remarks>
-    public sealed class Md4
+    public sealed class Md4 : IFixedOutput, IFixedOutputDirty, IReset
     {
         static internal readonly int BlockSize = 64;
 
         ulong LengthBytes;
         readonly BlockBuffer Buffer = new BlockBuffer(BlockSize);
         Md4State State;
+
+        public int OutputSize
+        {
+            get
+            {
+                return BlockSize;
+            }
+            private set
+            {
+                // readonly.
+            }
+        }
 
         /// <summary>
         /// コンストラクタです。
@@ -69,6 +79,26 @@ namespace Mizuk.NCrypto.Hashes.Md4
             State = new Md4State();
             LengthBytes = 0;
             Buffer.Reset();
+        }
+
+        public void FinalizeInto(byte[] output)
+        {
+            FixedOutputDirtyImpl.FinalizeInto(this, output);
+        }
+
+        public void FinalizeIntoReset(byte[] output)
+        {
+            FixedOutputDirtyImpl.FinalizeIntoReset(this, output);
+        }
+
+        public byte[] FinalizeFixed()
+        {
+            return FixedOutputImpl.FinalizeFixed(this);
+        }
+
+        public byte[] FinalizeFixedReset()
+        {
+            return FixedOutputImpl.FinalizeFixedReset(this);
         }
     }
 }
