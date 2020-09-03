@@ -1,4 +1,5 @@
-﻿using Mizuk.NCrypto.Hashes.Util;
+﻿using Mizuk.NCrypto.Hashes.Traits;
+using Mizuk.NCrypto.Hashes.Util;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,9 +14,15 @@ namespace Mizuk.NCrypto.Hashes.Md4
     /// This code is derived from  RustCrypto/hashes.
     /// Ported by mizuky at 2020/09/01.
     /// </remarks>
-    sealed class Md4State : IEnumerable<uint>
+    sealed class Md4State : IEnumerable<uint>, IClone<Md4State>
     {
         readonly uint[] _values = { 0x6745_2301, 0xEFCD_AB89, 0x98BA_DCFE, 0x1032_5476 };
+        readonly int _blockSize;
+
+        internal Md4State(int blockSize)
+        {
+            _blockSize = blockSize;
+        }
 
         uint this[int i]
         {
@@ -29,6 +36,13 @@ namespace Mizuk.NCrypto.Hashes.Md4
             }
         }
 
+        public Md4State Clone()
+        {
+            var clone = new Md4State(_blockSize);
+            _values.CopyTo(clone._values, 0);
+            return clone;
+        }
+
         public IEnumerator<uint> GetEnumerator()
         {
             foreach(var i in _values)
@@ -39,9 +53,9 @@ namespace Mizuk.NCrypto.Hashes.Md4
 
         public void ProcessBlock(byte[] input)
         {
-            if (input.Length != Md4.BlockSize)
+            if (input.Length != _blockSize)
             {
-                throw new ArgumentException(string.Format("block' size must be ", Md4.BlockSize));
+                throw new ArgumentException(string.Format("block' size must be ", _blockSize));
             }
 
             var a = _values[0];

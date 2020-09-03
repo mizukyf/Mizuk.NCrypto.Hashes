@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mizuk.NCrypto.Hashes.Traits;
+using System;
 using System.Linq;
 
 namespace Mizuk.NCrypto.Hashes.Util
@@ -11,7 +12,7 @@ namespace Mizuk.NCrypto.Hashes.Util
     /// This code is derived from  "block_buffer::BlockBuffer" in Rust std modules.
     /// Ported by mizuky at 2020/09/01.
     /// </remarks>
-    sealed class BlockBuffer
+    sealed class BlockBuffer : IClone<BlockBuffer>
     {
         readonly byte[] _buffer;
         int _pos;
@@ -31,6 +32,14 @@ namespace Mizuk.NCrypto.Hashes.Util
         /// バッファーに現在残されている空きスペースのサイズです。
         /// </summary>
         public int Remaining { get { return Size - _pos; } }
+
+        public BlockBuffer Clone()
+        {
+            var clone = new BlockBuffer(Size);
+            _buffer.CopyTo(clone._buffer, 0);
+            clone._pos = _pos;
+            return clone;
+        }
 
         /// <summary>
         /// 入力となるバイト列をバッファに格納します。

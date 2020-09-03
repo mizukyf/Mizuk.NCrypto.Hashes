@@ -1,4 +1,4 @@
-﻿namespace Mizuk.NCrypto.Hashes.Md4
+﻿namespace Mizuk.NCrypto.Hashes.Traits
 {
     /// <summary>
     /// Trait for fixed-output digest implementations to use to retrieve the

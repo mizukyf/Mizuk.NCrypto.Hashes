@@ -42,10 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Md4\IFixedOutputDirty.cs" />
-    <Compile Include="Md4\IFixedOutput.cs" />
-    <Compile Include="Md4\IReset.cs" />
+    <Compile Include="Traits\IClone.cs" />
+    <Compile Include="Traits\IBlockInput.cs" />
+    <Compile Include="Traits\IDigest.cs" />
+    <Compile Include="Traits\IFixedOutputDirty.cs" />
+    <Compile Include="Traits\IFixedOutput.cs" />
+    <Compile Include="Traits\IReset.cs" />
     <Compile Include="Md4\Md4Extension.cs" />
+    <Compile Include="Traits\IUpdate.cs" />
     <Compile Include="Util\Block.cs" />
     <Compile Include="Util\BlockBuffer.cs" />
     <Compile Include="Util\ChunksExact.cs" />

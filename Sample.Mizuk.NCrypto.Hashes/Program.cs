@@ -12,7 +12,7 @@ namespace Sample.Mizuk.NCrypto.Hashes
         static void Main(string[] args)
         {
             Console.WriteLine("original  : {0}", args[0]);
-            Console.WriteLine("ncrypto   : {0}", new Md4().Digest(args[0]).ToHexString(hyphenSeparated: true));
+            Console.WriteLine("ncrypto   : {0}", Md4.Digest(args[0]).ToHexString(hyphenSeparated: true));
 
             var md4 = new SharpCifs.Util.Md4();
             md4.Update(Encoding.Unicode.GetBytes(args[0]));

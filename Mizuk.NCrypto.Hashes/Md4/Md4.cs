@@ -1,5 +1,8 @@
-﻿using Mizuk.NCrypto.Hashes.Util;
+﻿using Mizuk.NCrypto.Hashes.Traits;
+using Mizuk.NCrypto.Hashes.Util;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Mizuk.NCrypto.Hashes.Md4
@@ -11,23 +14,33 @@ namespace Mizuk.NCrypto.Hashes.Md4
     /// This code is derived from  RustCrypto/hashes.
     /// Ported by mizuky at 2020/09/01.
     /// </remarks>
-    public sealed class Md4 : IFixedOutput, IFixedOutputDirty, IReset
+    public sealed class Md4 : IFixedOutput, IFixedOutputDirty, IReset, IBlockInput, IClone<Md4>, IUpdate<Md4>, IDigest<Md4>
     {
-        static internal readonly int BlockSize = 64;
+        static internal readonly int _BlockSize = 64;
+        static internal readonly int _OutputSize = 16;
 
         ulong LengthBytes;
-        readonly BlockBuffer Buffer = new BlockBuffer(BlockSize);
+        BlockBuffer Buffer = new BlockBuffer(_BlockSize);
         Md4State State;
 
+        /// <summary>
+        /// 出力されるバイト列のサイズです。
+        /// </summary>
         public int OutputSize
         {
             get
             {
-                return 16;
+                return _OutputSize;
             }
-            private set
+        }
+        /// <summary>
+        /// ブロックのサイズです。
+        /// </summary>
+        public int BlockSize
+        {
+            get
             {
-                // readonly.
+                return _BlockSize;
             }
         }
 
@@ -76,7 +89,7 @@ namespace Mizuk.NCrypto.Hashes.Md4
         /// </summary>
         public void Reset()
         {
-            State = new Md4State();
+            State = new Md4State(BlockSize);
             LengthBytes = 0;
             Buffer.Reset();
         }
@@ -99,6 +112,51 @@ namespace Mizuk.NCrypto.Hashes.Md4
         public byte[] FinalizeFixedReset()
         {
             return FixedOutputImpl.FinalizeFixedReset(this);
+        }
+
+        public Md4 Clone()
+        {
+            var clone = new Md4();
+            clone.LengthBytes = LengthBytes;
+            clone.Buffer = Buffer.Clone();
+            clone.State = State.Clone();
+            return clone;
+        }
+
+        public Md4 Chain(byte[] data)
+        {
+            return this.Chain(data);
+        }
+
+        public byte[] Finalize()
+        {
+            return this.Finalize();
+        }
+
+        public byte[] FinalizeReset()
+        {
+            return this.FinalizeReset();
+        }
+
+        /// <summary>
+        /// 指定されたバイト配列をMD4ダイジェストメッセージに変換します。
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static byte[] Digest(IEnumerable<byte> bytes)
+        {
+            var md4 = new Md4();
+            md4.Update(bytes.ToArray());
+            return md4.FinalizeFixed();
+        }
+        /// <summary>
+        /// 指定された文字列をUTF16のバイト配列にした上でMD4ダイジェストメッセージに変換します。
+        /// </summary>
+        /// <param name="chars"></param>
+        /// <returns></returns>
+        public static byte[] Digest(IEnumerable<char> chars)
+        {
+            return Digest(Encoding.Unicode.GetBytes(chars.ToArray()));
         }
     }
 }
