@@ -1,31 +1,31 @@
 ﻿namespace NCrypto.Hashes.Traits
 {
     /// <summary>
-    /// Trait for returning digest result with the fixed size
+    /// 固定長のダイジェストメッセージを返すことを表すインターフェースです。
     /// </summary>
     public interface IFixedOutput
     {
         /// <summary>
-        /// Output size for fixed output digest
+        /// 出力のサイズです。
         /// </summary>
         int OutputSize { get; }
         /// <summary>
-        /// Write result into provided array and consume the hasher instance.
+        /// 引数で指定された配列に結果を回収します。
         /// </summary>
         /// <param name="output"></param>
         void FinalizeInto(byte[] output);
         /// <summary>
-        /// Write result into provided array and reset the hasher instance.
+        /// 引数で指定された配列に結果を回収し、オブジェクトの内部状態をリセットします。
         /// </summary>
         /// <param name="output"></param>
         void FinalizeIntoReset(byte[] output);
         /// <summary>
-        /// Retrieve result and consume the hasher instance.
+        /// 結果を取得します。
         /// </summary>
         /// <returns></returns>
         byte[] FinalizeFixed();
         /// <summary>
-        /// Retrieve result and reset the hasher instance.
+        /// 結果を取得し、オブジェクトの内部状態をリセットします。
         /// </summary>
         /// <returns></returns>
         byte[] FinalizeFixedReset();

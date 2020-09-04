@@ -1,22 +1,23 @@
 ﻿namespace NCrypto.Hashes.Traits
 {
     /// <summary>
-    /// The Digest trait specifies an interface common for digest functions.
-    /// It's a convenience wrapper around Update, FixedOutput, Reset, Clone, and Default traits. 
-    /// It also provides additional convenience methods.
+    /// ダイジェスト関数のための共通インターフェースです。
+    /// <see cref="IUpdate{T}"/>、<see cref="IFixedOutput"/>、<see cref="IReset"/>、
+    /// そして<see cref="IClone{T}"/>を包含する便利なインターフェースです。
+    /// 加えていくつかの追加のメソッドも提供します。
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public interface IDigest<T> : IClone<T>, IFixedOutput, IReset, IUpdate<T> where T : IDigest<T>, IUpdate<T>
     {
         /// <summary>
-        /// Retrieve result and consume hasher instance.
+        /// 結果を取得します。
         /// </summary>
         /// <returns></returns>
         byte[] Finalize();
 
         /// <summary>
-        /// Retrieve result and reset hasher instance.
-        /// This method sometimes can be more efficient compared to hasher re-creation.
+        /// 結果を取得しオブジェクトの内部状態をリセットします。
+        /// このメソッドはオブジェクトの再作成を行うのに比べて効率的になることがあります。
         /// </summary>
         /// <returns></returns>
         byte[] FinalizeReset();
@@ -24,22 +25,11 @@
 
     static class DigestImpl
     {
-        /// <summary>
-        /// Retrieve result and consume hasher instance.
-        /// </summary>
-        /// <param name="self"></param>
-        /// <returns></returns>
         public static byte[] Finalize<T>(this IDigest<T> self) where T : IDigest<T>
         {
             return self.FinalizeFixed();
         }
 
-        /// <summary>
-        /// Retrieve result and reset hasher instance.
-        /// This method sometimes can be more efficient compared to hasher re-creation.
-        /// </summary>
-        /// <param name="self"></param>
-        /// <returns></returns>
         public static byte[] FinalizeReset<T>(this IDigest<T> self) where T : IDigest<T>
         {
             var res = self.Clone().FinalizeFixed();

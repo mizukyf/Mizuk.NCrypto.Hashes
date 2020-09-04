@@ -1,12 +1,12 @@
 ﻿namespace NCrypto.Hashes.Traits
 {
     /// <summary>
-    /// Trait for resetting hash instances
+    /// オブジェクトの内部状態をリセットするためのインターフェースです。
     /// </summary>
     public interface IReset
     {
         /// <summary>
-        /// Reset hasher instance to its initial state and return current state.
+        /// オブジェクトの内部状態を初期状態に戻します。
         /// </summary>
         void Reset();
     }

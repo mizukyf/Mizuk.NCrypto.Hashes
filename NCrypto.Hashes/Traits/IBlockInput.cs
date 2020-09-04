@@ -1,13 +1,13 @@
 ﻿namespace NCrypto.Hashes.Traits
 {
     /// <summary>
-    /// Trait to indicate that digest function processes data in blocks of size BlockSize.
-    /// The main usage of this trait is for implementing HMAC generically.
+    /// このインターフェースはダイジェスト関数が<see cref="BlockSize"/>のサイズで
+    /// データブロックを処理することを示すインターフェースです。
     /// </summary>
     public interface IBlockInput
     {
         /// <summary>
-        /// Block size
+        /// ブロックサイズです。
         /// </summary>
         int BlockSize { get; }
     }

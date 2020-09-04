@@ -1,24 +1,16 @@
 ﻿namespace NCrypto.Hashes.Traits
 {
     /// <summary>
-    /// Trait for fixed-output digest implementations to use to retrieve the
-    /// hash output.
+    /// 固定長メッセージダイジェスト処理の結果を取得するためのインターフェースです。
     ///
-    /// Usage of this trait in user code is discouraged. Instead use the
-    /// [`FixedOutput::finalize_fixed`] or [`FixedOutput::finalize_fixed_reset`]
-    /// methods.
-    ///
-    /// Types which impl this trait along with [`Reset`] will receive a blanket
-    /// impl of [`FixedOutput`].
+    /// ユーザーコードでこのインターフェースが提供するメソッドを利用することは推奨されません。
+    /// <see cref="IFixedOutput"/>が提供するメソッドを利用することをお奨めします。
     /// </summary>
     public interface IFixedOutputDirty : IFixedOutput
     {
         /// <summary>
-        /// Retrieve result into provided buffer and leave hasher in a dirty state.
-        ///
-        /// This method is expected to only be called once unless
-        /// [`Reset::reset`] is called, after which point it can be
-        /// called again and reset again (and so on). 
+        /// メッセージダイジェストの計算結果を引数で指定されたバッファに回収します。
+        /// そしてオブジェクトの内部状態はダーティなままにします。
         /// </summary>
         /// <param name="output"></param>
         void FinalizeIntoDirty(byte[] output);
