@@ -1,7 +1,7 @@
 ﻿namespace NCrypto.Hashes.Traits
 {
     /// <summary>
-    /// 固定長のダイジェストメッセージを返すことを表すインターフェースです。
+    /// 固定長のメッセージダイジェストを返すことを表すインターフェースです。
     /// </summary>
     public interface IFixedOutput
     {

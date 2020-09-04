@@ -169,7 +169,7 @@ namespace NCrypto.Hashes
         }
 
         /// <summary>
-        /// 指定されたバイト配列をMD4ダイジェストメッセージに変換します。
+        /// 指定されたバイト配列をMD4メッセージダイジェストに変換します。
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
@@ -180,7 +180,7 @@ namespace NCrypto.Hashes
             return md4.FinalizeFixed();
         }
         /// <summary>
-        /// 指定された文字列をUTF16のバイト配列にした上でMD4ダイジェストメッセージに変換します。
+        /// 指定された文字列をUTF16のバイト配列にした上でMD4メッセージダイジェストに変換します。
         /// </summary>
         /// <param name="chars"></param>
         /// <returns></returns>
