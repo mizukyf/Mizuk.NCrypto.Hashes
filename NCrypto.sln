@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mizuk.NCrypto.Hashes", "Mizuk.NCrypto.Hashes\Mizuk.NCrypto.Hashes.csproj", "{2E219093-C467-4885-869A-F70D9BCC078A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCrypto.Hashes", "NCrypto.Hashes\NCrypto.Hashes.csproj", "{2E219093-C467-4885-869A-F70D9BCC078A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F93FFDA-E1EC-4BD3-A4A4-702FFC53F0F8}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Mizuk.NCrypto.Hashes", "Sample.Mizuk.NCrypto.Hashes\Sample.Mizuk.NCrypto.Hashes.csproj", "{61ACFF50-E609-42D2-B0D3-5B4AFC38B9F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.NCrypto.Hashes", "Sample.NCrypto.Hashes\Sample.NCrypto.Hashes.csproj", "{61ACFF50-E609-42D2-B0D3-5B4AFC38B9F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

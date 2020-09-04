@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 
-namespace Mizuk.NCrypto.Hashes.Util
+namespace NCrypto.Hashes.Util
 {
     /// <summary>
-    /// Mizuk.NCrypto.Hashes内のコードのため、RustからC#へのポーティングをできるだけシンプルに行うための
+    /// NCrypto.Hashes内のコードのため、RustからC#へのポーティングをできるだけシンプルに行うための
     /// 各種の拡張メソッドを提供するユーティリティクラスです。
     /// </summary>
     /// <remarks>

@@ -1,4 +1,4 @@
-﻿namespace Mizuk.NCrypto.Hashes.Traits
+﻿namespace NCrypto.Hashes.Traits
 {
     /// <summary>
     /// オブジェクトの明示的なコピーの機能を提供するインターフェースです。

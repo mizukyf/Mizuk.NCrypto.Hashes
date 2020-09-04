@@ -1,4 +1,4 @@
-# Mizuk.NCrypto.Hashes
+# NCrypto.Hashes
 
 このプロジェクトはC#言語で実装された各種ハッシュ関数を提供することを目的とするものです。
 コードはRust言語で実装されたハッシュ関数コレクション [RustCrypto/hashes](https://github.com/RustCrypto/hashes) に由来し、そのソースコードをRustからC#へと移植したものです。

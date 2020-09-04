@@ -1,4 +1,4 @@
-﻿namespace Mizuk.NCrypto.Hashes.Traits
+﻿namespace NCrypto.Hashes.Traits
 {
     /// <summary>
     /// The Digest trait specifies an interface common for digest functions.

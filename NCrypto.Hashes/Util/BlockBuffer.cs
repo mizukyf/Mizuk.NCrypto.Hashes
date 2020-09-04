@@ -1,8 +1,8 @@
-﻿using Mizuk.NCrypto.Hashes.Traits;
+﻿using NCrypto.Hashes.Traits;
 using System;
 using System.Linq;
 
-namespace Mizuk.NCrypto.Hashes.Util
+namespace NCrypto.Hashes.Util
 {
     /// <summary>
     /// バイト列からなるデータをブロックごとに処理するためのバッファーです。

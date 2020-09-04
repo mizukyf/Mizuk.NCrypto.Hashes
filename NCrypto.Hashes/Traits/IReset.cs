@@ -1,4 +1,4 @@
-﻿namespace Mizuk.NCrypto.Hashes.Traits
+﻿namespace NCrypto.Hashes.Traits
 {
     /// <summary>
     /// Trait for resetting hash instances

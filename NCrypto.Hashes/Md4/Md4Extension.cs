@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Mizuk.NCrypto.Hashes.Md4
+namespace NCrypto.Hashes.Md4
 {
     /// <summary>
     /// <see cref="Md4"/>とそれに関連するオブジェクトのために拡張メソッドを提供するユーティリティです。

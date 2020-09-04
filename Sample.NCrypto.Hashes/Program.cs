@@ -1,11 +1,11 @@
-﻿using Mizuk.NCrypto.Hashes.Md4;
+﻿using NCrypto.Hashes.Md4;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sample.Mizuk.NCrypto.Hashes
+namespace Sample.NCrypto.Hashes
 {
     class Program
     {

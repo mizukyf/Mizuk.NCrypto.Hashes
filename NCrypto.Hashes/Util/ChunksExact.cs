@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Mizuk.NCrypto.Hashes.Util
+namespace NCrypto.Hashes.Util
 {
     /// <summary>
     /// 予め指定されたチャンクサイズでバイト配列を繰り返し処理するためのクラスです。

@@ -1,11 +1,11 @@
-﻿using Mizuk.NCrypto.Hashes.Traits;
-using Mizuk.NCrypto.Hashes.Util;
+﻿using NCrypto.Hashes.Traits;
+using NCrypto.Hashes.Util;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mizuk.NCrypto.Hashes.Md4
+namespace NCrypto.Hashes.Md4
 {
     /// <summary>
     /// MD4ハッシュの機能を提供するクラスです。

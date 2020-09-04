@@ -1,11 +1,11 @@
-﻿using Mizuk.NCrypto.Hashes.Traits;
-using Mizuk.NCrypto.Hashes.Util;
+﻿using NCrypto.Hashes.Traits;
+using NCrypto.Hashes.Util;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Mizuk.NCrypto.Hashes.Md4
+namespace NCrypto.Hashes.Md4
 {
     /// <summary>
     /// <see cref="Md4"/>が処理過程を管理するために利用するクラスです。
