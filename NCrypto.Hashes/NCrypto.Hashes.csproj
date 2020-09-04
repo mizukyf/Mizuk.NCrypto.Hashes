@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Md5\Md5.cs" />
     <Compile Include="Traits\IClone.cs" />
     <Compile Include="Traits\IBlockInput.cs" />
     <Compile Include="Traits\IDigest.cs" />
