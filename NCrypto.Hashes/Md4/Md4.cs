@@ -146,7 +146,7 @@ namespace NCrypto.Hashes.Md4
         /// <returns></returns>
         public Md4 Chain(byte[] data)
         {
-            return this.Chain(data);
+            return UpdateImpl.Chain(this, data);
         }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace NCrypto.Hashes.Md4
         /// <returns></returns>
         public byte[] Finalize()
         {
-            return this.Finalize();
+            return DigestImpl.Finalize(this);
         }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace NCrypto.Hashes.Md4
         /// <returns></returns>
         public byte[] FinalizeReset()
         {
-            return this.FinalizeReset();
+            return DigestImpl.FinalizeReset(this);
         }
 
         /// <summary>
