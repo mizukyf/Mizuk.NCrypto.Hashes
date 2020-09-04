@@ -203,7 +203,7 @@ namespace NCrypto.Hashes
             return DigestImpl.FinalizeReset(this);
         }
         /// <summary>
-        /// 指定されたバイト配列をMD5ダイジェストメッセージに変換します。
+        /// 指定されたバイト配列をMD5メッセージダイジェストに変換します。
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
@@ -214,7 +214,7 @@ namespace NCrypto.Hashes
             return md5.FinalizeFixed();
         }
         /// <summary>
-        /// 指定された文字列をUTF16のバイト配列にした上でMD5ダイジェストメッセージに変換します。
+        /// 指定された文字列をUTF16のバイト配列にした上でMD5メッセージダイジェストに変換します。
         /// </summary>
         /// <param name="chars"></param>
         /// <returns></returns>
