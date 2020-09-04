@@ -14,7 +14,7 @@ namespace NCrypto.Hashes
     /// This code is derived from  RustCrypto/hashes.
     /// Ported by mizuky at 2020/09/01.
     /// </remarks>
-    public sealed class Md4 : IFixedOutput, IFixedOutputDirty, IReset, IBlockInput, IClone<Md4>, IUpdate<Md4>, IDigest<Md4>
+    public sealed class Md4 : IBlockInput, IDigest<Md4>, IFixedOutputDirty
     {
         static internal readonly int _BlockSize = 64;
         static internal readonly int _OutputSize = 16;

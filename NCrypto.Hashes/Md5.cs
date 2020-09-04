@@ -15,7 +15,7 @@ namespace NCrypto.Hashes
     /// This code is derived from  RustCrypto/hashes.
     /// Ported by mizuky at 2020/09/04.
     /// </remarks>
-    public sealed class Md5 : IFixedOutput, IFixedOutputDirty, IReset, IBlockInput, IClone<Md5>, IUpdate<Md5>, IDigest<Md5>
+    public sealed class Md5 : IBlockInput, IDigest<Md5>, IFixedOutputDirty
     {
         #region consts.rs
 
