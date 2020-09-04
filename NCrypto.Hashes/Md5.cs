@@ -80,6 +80,7 @@ namespace NCrypto.Hashes
         {
             LengthBytes = 0;
             Buffer = new BlockBuffer(_BlockSize);
+            State = new uint[4];
             _InitState.CopyTo(State, 0);
         }
         void FinalizeInner()
