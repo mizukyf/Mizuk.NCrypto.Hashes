@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NCrypto.Hashes.Md4
+namespace NCrypto.Hashes
 {
     /// <summary>
     /// <see cref="Md4"/>が処理過程を管理するために利用するクラスです。

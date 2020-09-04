@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NCrypto.Hashes.Md4
+namespace NCrypto.Hashes
 {
     /// <summary>
-    /// <see cref="Md4"/>とそれに関連するオブジェクトのために拡張メソッドを提供するユーティリティです。
+    /// <see cref="Md4"/>や<see cref="Md5"/>とそれに関連するオブジェクトのために拡張メソッドを提供するユーティリティです。
     /// </summary>
-    public static class Md4Extension
+    public static class HashesExtension
     {
         /// <summary>
         /// バイトのシーケンスを16進数の文字列表現に変換します。

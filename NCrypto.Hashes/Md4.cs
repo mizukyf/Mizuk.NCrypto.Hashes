@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NCrypto.Hashes.Md4
+namespace NCrypto.Hashes
 {
     /// <summary>
     /// MD4ハッシュの機能を提供するクラスです。

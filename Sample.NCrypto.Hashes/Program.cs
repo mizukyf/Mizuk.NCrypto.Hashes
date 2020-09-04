@@ -1,4 +1,4 @@
-﻿using NCrypto.Hashes.Md4;
+﻿using NCrypto.Hashes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
