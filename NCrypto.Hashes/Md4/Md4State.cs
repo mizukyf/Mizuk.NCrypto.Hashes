@@ -123,7 +123,7 @@ namespace NCrypto.Hashes.Md4
             return x ^ y ^ z;
         }
 
-        uint op1(uint a, uint b, uint c, uint d, uint k,int s)
+        uint op1(uint a, uint b, uint c, uint d, uint k, int s)
         {
             var t = a + f(b, c, d) + k;
             return t.RotateLeft(s);
