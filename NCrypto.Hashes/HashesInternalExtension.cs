@@ -1,7 +1,8 @@
-﻿using System;
+﻿using NCrypto.Hashes.Util;
+using System;
 using System.Linq;
 
-namespace NCrypto.Hashes.Util
+namespace NCrypto.Hashes
 {
     /// <summary>
     /// NCrypto.Hashes内のコードのため、RustからC#へのポーティングをできるだけシンプルに行うための
@@ -12,7 +13,7 @@ namespace NCrypto.Hashes.Util
     /// Ported by mizuky at 2020/09/01.
     /// 
     /// </remarks>
-    static class NCryptoHashesExtension
+    static class HashesInternalExtension
     {
         /// <summary>
         /// ビットを左方向にシフト、ローテートを行います。

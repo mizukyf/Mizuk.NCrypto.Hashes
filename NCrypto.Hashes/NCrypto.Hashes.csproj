@@ -54,7 +54,7 @@
     <Compile Include="Util\BlockBuffer.cs" />
     <Compile Include="Util\ChunksExact.cs" />
     <Compile Include="Md4.cs" />
-    <Compile Include="Util\NCryptoHashesExtension.cs" />
+    <Compile Include="HashesInternalExtension.cs" />
     <Compile Include="Md4State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
