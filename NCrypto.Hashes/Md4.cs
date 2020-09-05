@@ -16,8 +16,8 @@ namespace NCrypto.Hashes
     /// </remarks>
     public sealed class Md4 : IBlockInput, IDigest<Md4>, IFixedOutputDirty
     {
-        static internal readonly int _BlockSize = 64;
-        static internal readonly int _OutputSize = 16;
+        static readonly int _BlockSize = 64;
+        static readonly int _OutputSize = 16;
 
         ulong LengthBytes;
         BlockBuffer Buffer = new BlockBuffer(_BlockSize);

@@ -45,8 +45,8 @@ namespace NCrypto.Hashes
 
         #endregion consts.rs
 
-        static internal readonly int _BlockSize = 64;
-        static internal readonly int _OutputSize = 16;
+        static readonly int _BlockSize = 64;
+        static readonly int _OutputSize = 16;
 
         ulong LengthBytes;
         BlockBuffer Buffer;
